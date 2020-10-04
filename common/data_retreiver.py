@@ -24,6 +24,13 @@ DATASETS = {
   "all_parcel_assessments.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/all_parcel_assessments.csv",
   "all_parcel_names.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/all_parcel_names.csv",
   "all_parcel_sales.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/all_parcel_sales.csv",
+  "all_parcel_locations.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/all_parcel_locations.csv",
+  "single_family_assessments.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/single%20family%20all_parcel_assessments.csv",
+  "single_family_locations.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/single_family_locations.csv",
+  "single_family_names.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/single_family_names.csv",
+  "single_family_sales.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/single_family_sales.csv",
+  "all_parcel_core.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/all_parcel_core.csv",
+  "single_family_core.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/single_family_core.csv",
 }
 
 def download_datasets():
@@ -37,5 +44,8 @@ def load_csv_datasets(*datasets): #Returns a tupple of pandas dataframes.
     for datasetName in datasets:
         fullPath = os.path.join(os.pardir, DATA_PATH, datasetName + '.csv')
         df = pd.read_csv(fullPath)
+        if("Parcel" in df.columns):
+            df["Parcel"] = df["Parcel"].astype("str")
+            df.set_index("Parcel", inplace=True)
         result.append(df)
     return tuple(result)
