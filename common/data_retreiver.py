@@ -31,13 +31,15 @@ DATASETS = {
   "all_parcel_core.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/all_parcel_core.csv",
   "single_family_core.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/single_family_core.csv",
   "year_sales.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/year_sales.csv",
+  "single_family_areas_info.csv": "https://raw.githubusercontent.com/madison-housing-cs638/data/master/single_family_areas_info.csv"
 }
 
 FAMILY_DATASETS = {
     "single_family_core.csv": DATASETS["single_family_core.csv"],
     "year_sales.csv": DATASETS["year_sales.csv"],
     "single_family_sales.csv": DATASETS["single_family_sales.csv"],
-    "year_sales.csv": DATASETS["year_sales.csv"]
+    "year_sales.csv": DATASETS["year_sales.csv"],
+    "single_family_areas_info.csv": DATASETS["single_family_areas_info.csv"]
 }
 
 GEO_DATA = {
